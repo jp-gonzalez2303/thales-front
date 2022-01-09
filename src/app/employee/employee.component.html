@@ -1,0 +1,46 @@
+<div class="toolbar">
+
+    <br />
+    <h3> Employess</h3>
+</div>
+
+<br />
+<br />
+
+<div class="center">
+
+    <div class="d-flex">
+        <div class="col-md-6" style="width: 22rem;">
+            <input mdbInput placeholder="Employee ID" type="text"  class="form-control" [(ngModel)]="id">
+        </div>
+
+        <div class="col-md-1">
+            <button type="button" class="btn btn-primary" (click)="findById()">Find</button>
+        </div>
+    </div>
+
+</div>
+
+<br />
+
+<div class="center">
+    <div>
+        <table class="table table-striped">
+            <thead >
+                <th *ngFor="let col of columns">
+                    {{col}}
+                </th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees">
+                    <td>{{employee.id}}</td>
+                    <td>{{employee.employee_name}}</td>
+                    <td>{{employee.employee_salary}}</td>
+                    <td>{{employee.employee_age}}</td>
+                    <td>{{employee.profile_image}}</td>
+                    <td>{{employee.employee_anual_salary}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
