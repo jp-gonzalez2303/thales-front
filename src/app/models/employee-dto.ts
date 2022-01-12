@@ -1,3 +1,5 @@
+
+ 
 export interface EmployeeDto {
 
     id:Number,
@@ -7,3 +9,4 @@ export interface EmployeeDto {
     profile_image: string,
     employee_anual_salary:Number;
 }
+  

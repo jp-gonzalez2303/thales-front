@@ -1,3 +1,11 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Thales_Logo.svg/2560px-Thales_Logo.svg.png"
+                height="30" alt="MDB Logo" loading="lazy" />
+        </a>
+    </div>
+</nav>
 <div class="toolbar">
 
     <br />
@@ -5,13 +13,12 @@
 </div>
 
 <br />
-<br />
 
 <div class="center">
 
     <div class="d-flex">
         <div class="col-md-6" style="width: 22rem;">
-            <input mdbInput placeholder="Employee ID" type="text"  class="form-control" [(ngModel)]="id">
+            <input mdbInput placeholder="Employee ID" type="text" class="form-control" [(ngModel)]="id">
         </div>
 
         <div class="col-md-1">
@@ -26,14 +33,14 @@
 <div class="center">
     <div>
         <table class="table table-striped">
-            <thead >
+            <thead>
                 <th *ngFor="let col of columns">
                     {{col}}
                 </th>
             </thead>
             <tbody>
-                <tr *ngFor="let employee of employees">
-                    <td>{{employee.id}}</td>
+                <tr *ngFor="let employee of employees ">
+                    <th>{{employee.id}}</th>
                     <td>{{employee.employee_name}}</td>
                     <td>{{employee.employee_salary}}</td>
                     <td>{{employee.employee_age}}</td>
@@ -42,5 +49,18 @@
                 </tr>
             </tbody>
         </table>
+
+        <div class="d-flex justify-content-between p-2">
+            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshEmployees()">
+            </ngb-pagination>
+
+            <select class="custom-select" style="width: auto" [(ngModel)]="pageSize"
+                (ngModelChange)="refreshEmployees()">
+                <option [ngValue]="2">2 items per page</option>
+                <option [ngValue]="4">4 items per page</option>
+                <option [ngValue]="6">6 items per page</option>
+            </select>
+        </div>
+
+        <pre>Current page: {{page}}</pre>
     </div>
-</div>
